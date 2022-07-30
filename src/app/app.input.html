@@ -1,0 +1,24 @@
+<h2>TODO APP</h2>
+
+<label for="todo">Todo</label>
+<br/>
+<input 
+  value="{{todo}}" 
+  placeholder="{{placeholder}}" 
+  type="text"
+  id="todo" 
+  name="todo" 
+  required 
+  minlength="3" 
+  size="20"
+  (keyup)="onKeyup($event)"
+>
+<button [disabled]="disableAdd()" (click)="onAdd()">Add</button>
+<h4>Todos</h4>
+<p *ngIf="!shouldRenderTodos()">You have nothing todo</p>
+<ul *ngIf="shouldRenderTodos()">
+  <li *ngFor="let todo of todos">
+    {{todo.title}}
+    <button (click)="onDelete(todo.id)">X</button>
+  </li>
+</ul>
