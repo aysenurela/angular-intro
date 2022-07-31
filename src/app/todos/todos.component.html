@@ -1,4 +1,9 @@
 <h2>TODO APP</h2>
+<!-- 
+  directives ngIf ngClass 
+  * for the structural directives (adding or removing elements)
+  ngClass change some properties of elements no change in flow of the dom
+-->
 
 <label for="todo">Todo</label>
 <br/>
@@ -12,12 +17,14 @@
   minlength="3" 
   size="20"
   (keyup)="onKeyup($event)"
+  [ngClass]="{active: todo !== ''}"
 >
 <button [disabled]="disableAdd()" (click)="onAdd()">Add</button>
 <h4>Todos</h4>
 <p *ngIf="!shouldRenderTodos()">You have nothing todo</p>
 <ul *ngIf="shouldRenderTodos()">
-  <li *ngFor="let todo of todos">
+  <li 
+    *ngFor="let todo of todos" [id]="todo.id">
     {{todo.title}}
     <button (click)="onDelete(todo.id)">X</button>
   </li>

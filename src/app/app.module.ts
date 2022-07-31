@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AppInput } from './app.input';
+import { TodosComponent } from './todos/todos.component';
 
 //@sth is "DECORATOR" (typescript feature)
 @NgModule({
   declarations: [
     AppComponent,
-    AppInput
+    TodosComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent, AppInput]
+  bootstrap: [AppComponent, TodosComponent]
 })
 export class AppModule { } // no content

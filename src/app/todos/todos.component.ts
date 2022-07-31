@@ -6,11 +6,11 @@ type Todo = {
 }
 
 @Component({
-  selector: 'app-input', // element
-  templateUrl: './app.input.html'
-  // styleUrls: ['./app.component.css']
+  selector: 'app-todos', // element
+  templateUrl: './todos.component.html',
+  styleUrls: ['./todos.component.css']
 })
-export class AppInput {
+export class TodosComponent {
   todo:string = "";
   placeholder:string = 'Add a new todo';
   todos: Todo[] = [];
