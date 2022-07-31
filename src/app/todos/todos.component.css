@@ -1,3 +1,6 @@
 .active {
     border: 1px solid lightcoral;
 }
+.title {
+    display: flex;
+}
