@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
+import { FormsModule } from '@angular/forms';
 
 //@sth is "DECORATOR" (typescript feature)
 @NgModule({
@@ -11,7 +12,8 @@ import { TodosComponent } from './todos/todos.component';
     TodosComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent, TodosComponent]

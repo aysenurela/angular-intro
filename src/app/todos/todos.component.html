@@ -8,7 +8,6 @@
 <label for="todo">Todo</label>
 <br/>
 <input 
-  value="{{todo}}" 
   placeholder="{{placeholder}}" 
   type="text"
   id="todo" 
@@ -16,8 +15,8 @@
   required 
   minlength="3" 
   size="20"
-  (keyup)="onKeyup($event)"
   [ngClass]="{active: todo !== ''}"
+  [(ngModel)]="todo"
 >
 <button [disabled]="disableAdd()" (click)="onAdd()">Add</button>
 <h4>Todos</h4>

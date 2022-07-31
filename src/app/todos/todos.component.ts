@@ -14,9 +14,9 @@ export class TodosComponent {
   todo:string = "";
   placeholder:string = 'Add a new todo';
   todos: Todo[] = [];
-  onKeyup(event: any) {
-    this.todo = event.target.value
-  };
+  // onKeyup(event: any) {
+  //   this.todo = event.target.value
+  // };
   disableAdd: Function = () => {
     return this.todo.length < 3
   };
