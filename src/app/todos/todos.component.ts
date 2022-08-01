@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 type Todo = {
-	id: number;
-	title: string;
+	id: number
+	title: string
+  completed: boolean
 }
 
 @Component({
@@ -26,13 +27,19 @@ export class TodosComponent {
   onAdd:Function = () => {
     const todo: Todo = {
       title: this.todo,
-      id: Math.random()
+      id: Math.random(),
+      completed: false
     }
     this.todos.push(todo)
     this.todo = ""
   };
-  onDelete:Function = (id: number) => {
+  //  arrow function always binds to its parent’s this (?)
+  public onDelete = (id: number) => {
     const elemInd = this.todos.findIndex((todo) => todo.id === id)
     this.todos.splice(elemInd,1)
   };
+  updateTodos = (id: number) => {
+    const updatedTodoInd = this.todos.findIndex((todo) => id === todo.id);
+    this.todos[updatedTodoInd].completed = !this.todos[updatedTodoInd].completed
+  }
 }

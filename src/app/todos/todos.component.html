@@ -13,7 +13,18 @@
   ngClass change some properties of elements no change in flow of the dom
 -->
 
-<label for="todo">Todo</label>
+<!-- 
+  // [] how you send data to the child
+  [onDelete]="whatever you wanna send" 
+
+  // incoming function from child.
+  // () how you listen child updates or data
+  // if you are getting a parameter you need to send $event.
+  // $event not a JS event, it is the parameter you pass
+  (toggleCompleted)="whateverYouWannaDo($event)" 
+ -->
+
+<label class="newTodoLabel" for="todo">Todo</label>
 <br/>
 <input 
   placeholder="{{placeholder}}" 
@@ -27,12 +38,17 @@
   [(ngModel)]="todo"
 >
 <button [disabled]="disableAdd()" (click)="onAdd()">Add</button>
-<h4>Todos</h4>
+<br/> <br/>
+<h3>Todos ({{todos.length}})</h3>
 <p *ngIf="!shouldRenderTodos()">You have nothing todo</p>
 <ul *ngIf="shouldRenderTodos()">
-  <li 
-    *ngFor="let todo of todos" [id]="todo.id">
+  <app-todo 
+    *ngFor="let todo of todos" 
+    [todoProp]="todo" 
+    [onDelete]="onDelete"
+    (toggleCompleted)="updateTodos($event)" 
+    >
     {{todo.title}}
-    <button (click)="onDelete(todo.id)">X</button>
-  </li>
+</app-todo>
 </ul>
+<br/> <br/> <br/> <br/>

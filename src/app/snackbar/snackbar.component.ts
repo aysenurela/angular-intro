@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
  */
 @Component({
   selector: 'app-snackbar',
-  templateUrl: 'snackbar.component.html'
+  template: '<button (click)="openSnackBar()">Show snack-bar</button>'
 })
 export class SnackBarComponent {
   constructor(private _snackBar: MatSnackBar) {}
