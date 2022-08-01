@@ -37,9 +37,18 @@ export class TodosComponent {
   public onDelete = (id: number) => {
     const elemInd = this.todos.findIndex((todo) => todo.id === id)
     this.todos.splice(elemInd,1)
+    //@todo should also update completed todos
   };
+  completedTodos: Todo[] = []
   updateTodos = (id: number) => {
     const updatedTodoInd = this.todos.findIndex((todo) => id === todo.id);
     this.todos[updatedTodoInd].completed = !this.todos[updatedTodoInd].completed
+    
+    // reset everytime
+    const newCompletedTodos: Todo[] = []
+    this.todos.map((todo)=> {
+      if (todo.completed) newCompletedTodos.push(todo)
+      this.completedTodos = newCompletedTodos
+    })
   }
 }
